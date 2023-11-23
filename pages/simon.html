@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/simon.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+    <script src="../assets/js/script.js" type="text/javascript" defer></script>
+    <script src="../assets/js/simon/jsonServer.js" defer></script>
+    <script src="../assets/js/simon/script.js" defer></script>
+
+    <title>Simon dice | Rafael Gandia</title>
+</head>
+
+<body>
+    <header>
+
+        <a href="#">
+            <img src="../assets/images/logo.png" alt="logo bicisval">
+        </a>
+
+        <nav class="navigation">
+            <div class="navigation-items">
+                <a href="../index.html">Inicio</a>
+                <a href="tictac.html">TikTak</a>
+                <a href="simon.html">Simon</a>
+                <a href="ranking.html">Ranking</a>
+                <a href="user.html" id="userLink" style="display: none;">Usuario</a>
+                <a href="register.html" id="registerLink">Registrarse</a>
+                <a href="login.html " id="loginLink">Login</a>
+
+
+            </div>
+        </nav>
+
+        <div class="menu-btn">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+
+    </header>
+
+    <hr />
+    <main class="simon">
+        <div id="mainContent">
+
+            <section id="singlePlayerSection" style="display:block;" class="card">
+                <form id="singlePlayerForm">
+                    <p>En el juego "Simon Says", puedes comenzar desde el nivel 1 y avanzar gradualmente o saltar
+                        directamente
+                        al nivel 4. Tu puntuación reflejará el nivel en el que te encuentres. Avanzas de nivel cada
+                        cierto
+                        número de rondas, hasta llegar al nivel 4, donde la dificultad se mantiene, pero acumulas puntos
+                        más
+                        rápidamente.</p>
+                    <div class="levelRank">
+
+                        <div id="ranking">Tabla de los 5 mejores</div>
+                    </div>
+                    <h3>A por todas!!</h3>
+                    <br>
+                    <label>Cuales son las iniciales del jugador:</label>
+                    <input type="text" id="nombreJugadorXSingle" placeholder="Nombre Jugador X" required>
+
+                    <p>Nivel de dificultad:
+
+
+                        <label>
+                            <input type="radio" name="dificultat" value="level1" required> Nivel 1
+                        </label>
+                        <label>
+                            <input type="radio" name="dificultat" value="level2" required> Nivel 2
+                        </label>
+                        <label>
+                            <input type="radio" name="dificultat" value="level3"> Nivel 3
+                        </label>
+                        <label>
+                            <input type="radio" name="dificultat" value="level4"> Nivel 4
+                        </label>
+                    </p>
+                    <div class="selectLevel">
+
+                        <Button type="submit" value="Enviar">Empezar!</Button>
+
+                    </div>
+        </div>
+        </form>
+        </section>
+        <section id="level1" style="display:none;" class="card">
+            <div class="message">
+                <div id="score"></div>
+                <div id="ronda"></div>
+                <div id="message"></div>
+            </div>
+            <div id="simon">
+                <div class="cell" pos="1">
+                    <div class="error-x">X</div>
+                </div>
+                <div class="cell" pos="2">
+                    <div class="error-x">X</div>
+                </div>
+                <div class="cell" pos="3">
+                    <div class="error-x">X</div>
+                </div>
+                <div class="cell" pos="4">
+                    <div class="error-x">X</div>
+                </div>
+                <div class="cell" pos="5">
+                    <div class="error-x">X</div>
+                </div>
+                <div class="cell" pos="6">
+                    <div class="error-x">X</div>
+                </div>
+                <div class="cell" pos="7">
+                    <div class="error-x">X</div>
+                </div>
+                <div class="cell" pos="8">
+                    <div class="error-x">X</div>
+                </div>
+                <div class="cell" pos="9">
+                    <div class="error-x">X</div>
+                </div>
+
+            </div>
+
+            <div id="bottom">
+
+                <button id="start">Start</button>
+
+            </div>
+            <div class="pop">
+                <h1>Game Over</h1>
+                <br>
+                <p id="score2"></p>
+            </div>
+        </section>
+        </div>
+        <div id="loginMessage" style="display: none;" class="card">
+            <p>Debes estar logueado para poder jugar.</p>
+        </div>
+    </main>
+    <footer>
+        <hr />
+        <section class="footer-container">
+            <div class="footer-section">
+                <h3>Somos los mejores</h3>
+                <a href="#">
+                    <img src="../assets/images/logo.png" alt="logo bicisval">
+                </a>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces útiles</h3>
+                <div class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="alquiler.html">Alquiler</a>
+                    <a href="taller.html">Taller</a>
+                    <a href="venta.html">Venta</a>
+                    <a href="pages/tictac.html">TikTak</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: info@bicisval.com</p>
+                <p>Teléfono: +34 291 02 23 32</p>
+                <p>Dirección: Daniel Gil, n: 34º</p>
+            </div>
+        </section>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 BicisVal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var nombreUsuario = localStorage.getItem('username');
+        var mainContent = document.getElementById('mainContent');
+        var loginMessage = document.getElementById('loginMessage');
+        if (nombreUsuario) {
+            var inputNombreJugador = document.getElementById('nombreJugadorXSingle');
+            if (inputNombreJugador) {
+                inputNombreJugador.value = nombreUsuario;
+            }
+        }
+        if (!nombreUsuario) {
+            // Usuario no logueado
+            if (mainContent) mainContent.style.display = 'none';
+            if (loginMessage) loginMessage.style.display = 'block';
+        }
+    });
+</script>
+
+</html>

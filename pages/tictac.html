@@ -1,0 +1,245 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tictac.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="../assets/js/tictac/IA.js" defer></script>
+    <script src="../assets/js/tictac/jsonServer.js" defer></script>
+    <script src="../assets/js/tictac/script.js" defer></script>
+    <script src="../assets/js/script.js" type="text/javascript" defer></script>
+
+    <title>Tic Tac Toe | Rafael Gandia</title>
+
+</head>
+
+<body>
+    <header>
+
+        <a href="#">
+            <img src="../assets/images/logo.png" alt="logo bicisval">
+        </a>
+
+        <nav class="navigation">
+            <div class="navigation-items">
+                <a href="../index.html">Inicio</a>
+                <a href="tictac.html">TikTak</a>
+                <a href="simon.html">Simon</a>
+                <a href="ranking.html">Ranking</a>
+                <a href="user.html" id="userLink" style="display: none;">Usuario</a>
+                <a href="register.html" id="registerLink">Registrarse</a>
+                <a href="login.html " id="loginLink">Login</a>
+
+
+            </div>
+        </nav>
+
+        <div class="menu-btn">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+
+
+    </header>
+
+    <hr />
+    <main class="tictac">
+        <div id="mainContent">
+
+            <section class="card" id="selectGame">
+                <form id="modeGame">
+                    <label>
+                        <input type="radio" name="playerMode" value="singlePlayer" required> Single Player
+                    </label>
+                    <label>
+                        <input type="radio" name="playerMode" value="multiplayer"> Multiplayer
+                    </label>
+                    <p>Introduce el número de partidas a realizar (impar):</p>
+                    <input type="number" id="numeroPartidas" min="1" step="2" required>
+                    <div class="buttons">
+                        <button type="submit" value="Confirmar">Confirmar</button>
+
+                    </div>
+                </form>
+            </section>
+
+            <section id="multiplayerSection" style="display:none;" class="card">
+                <form id="multiplayerForm">
+                    <label>Cual es el nombre del jugador X:</label>
+                    <input type="text" id="nombreJugadorXMulti" placeholder="Nombre Jugador X" required>
+                    <label>Cual es el nombre del jugador O:</label>
+                    <input type="text" id="nombreJugadorOMulti" placeholder="Nombre Jugador O" required>
+                    <div class="buttons">
+                        <button type="submit" value="Enviar">Enviar</button>
+
+                    </div>
+                </form>
+            </section>
+
+            <section id="singlePlayerSection" style="display:none;" class="card">
+                <form id="singlePlayerForm">
+                    <label>Cual es el nombre del jugador X:</label>
+                    <input type="text" id="nombreJugadorXSingle" placeholder="Nombre Jugador X" required>
+
+                    <p>Nivel de dificultad:</p>
+                    <label>
+                        <input type="radio" name="dificultat" value="easy" required> Facil
+                    </label>
+                    <label>
+                        <input type="radio" name="dificultat" value="normal"> Normal
+                    </label>
+                    <div class="buttons">
+                        <Button type="submit" value="Enviar">Enviar</Button>
+                    </div>
+                </form>
+            </section>
+
+
+            <section id="Tic-Tac-Toe" style="display:none;" class="card">
+
+
+                <div class="turn-container">
+                    <h3>Es el torn de:</h3>
+                    <div id="player1" class="turn-box align"></div>
+                    <div id="player2" class="turn-box align"></div>
+                    <div class="bg"></div>
+                </div>
+                <div id="remainingGames"></div>
+
+                <section class="tablero ">
+                    <div class="drag">
+                        <div class="dragBox">
+                            <div class="cross" draggable="true" ondragstart="drag(event)" id="cross1"></div>
+                        </div>
+                        <div class="dragBox">
+                            <div class="cross" draggable="true" ondragstart="drag(event)" id="cross2"></div>
+                        </div>
+                        <div class="dragBox">
+                            <div class="cross" draggable="true" ondragstart="drag(event)" id="cross3"></div>
+                        </div>
+                        <div class="dragBox">
+                            <div class="cross" draggable="true" ondragstart="drag(event)" id="cross4"></div>
+                        </div>
+                        <div class="dragBox">
+                            <div class="cross" draggable="true" ondragstart="drag(event)" id="cross5"></div>
+                        </div>
+                    </div>
+
+                    <div class="board">
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                    <div class="drag">
+                        <div class="dragBox">
+                            <div class="circle" draggable="true" ondragstart="drag(event)" id="circle1"></div>
+                        </div>
+                        <div class="dragBox">
+                            <div class="circle" draggable="true" ondragstart="drag(event)" id="circle2"></div>
+                        </div>
+                        <div class="dragBox">
+                            <div class="circle" draggable="true" ondragstart="drag(event)" id="circle3"></div>
+                        </div>
+                        <div class="dragBox">
+                            <div class="circle" draggable="true" ondragstart="drag(event)" id="circle4"></div>
+                        </div>
+                        <div class="dragBox">
+                            <div class="circle" draggable="true" ondragstart="drag(event)" id="circle5"></div>
+                        </div>
+                    </div>
+
+                </section>
+                <div class="result">
+
+                    <h2 id="results"></h2>
+                </div>
+                <div id="detallsMoviments"></div>
+                <div id="resultatFinal"></div>
+                <section class="buttons">
+                    <button id="play-again" style="display:none">Continuar</button>
+                    <button id="nova-partida" style="display:none">Nova Partida</button>
+                </section>
+                <div>
+                    <canvas id="winsChart"></canvas>
+                    <canvas id="movesChart"></canvas>
+                </div>
+        </div>
+        <div id="loginMessage" style="display: none;" class="card">
+            <p>Debes estar logueado para poder jugar.</p>
+        </div>
+        <!--
+        <button class="reset" onclick="resetGame()">Reset Game</button> -->
+        </section>
+    </main>
+    <footer>
+        <hr />
+        <section class="footer-container">
+            <div class="footer-section">
+                <h3>Somos los mejores</h3>
+                <a href="#">
+                    <img src="../assets/images/logo.png" alt="logo bicisval">
+                </a>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces útiles</h3>
+                <div class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="alquiler.html">Alquiler</a>
+                    <a href="taller.html">Taller</a>
+                    <a href="venta.html">Venta</a>
+                    <a href="pages/tictac.html">TikTak</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: info@bicisval.com</p>
+                <p>Teléfono: +34 291 02 23 32</p>
+                <p>Dirección: Daniel Gil, n: 34º</p>
+            </div>
+        </section>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 BicisVal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var nombreUsuario = localStorage.getItem('username');
+            var mainContent = document.getElementById('mainContent');
+            var loginMessage = document.getElementById('loginMessage');
+            if (nombreUsuario) {
+                var inputNombreJugador = document.getElementById('nombreJugadorXSingle');
+                var inputNombreJugador2 = document.getElementById('nombreJugadorXMulti');
+                if (inputNombreJugador) {
+                    inputNombreJugador.value = nombreUsuario;
+                }
+                if (inputNombreJugador2) {
+                    inputNombreJugador2.value = nombreUsuario;
+                }
+            }
+            if (!nombreUsuario) {
+                // Usuario no logueado
+                if (mainContent) mainContent.style.display = 'none';
+                if (loginMessage) loginMessage.style.display = 'block';
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

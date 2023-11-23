@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tictac.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <script src="../assets/js/API.js" type="text/javascript" defer></script>
+    <script src="../assets/js/simon/jsonServer.js" defer></script>
+    <script src="../assets/js/tictac/jsonServer.js" defer></script>
+    <script src="../assets/js/script.js" type="text/javascript" defer></script>
+    <title>Simon dice</title>
+</head>
+
+<body>
+    <header>
+
+        <a href="#">
+            <img src="../assets/images/logo.png" alt="logo bicisval">
+        </a>
+
+        <nav class="navigation">
+            <div class="navigation-items">
+                <a href="../index.html">Inicio</a>
+                <a href="tictac.html">TikTak</a>
+                <a href="simon.html">Simon</a>
+                <a href="ranking.html">Ranking</a>
+                <a href="user.html" id="userLink" style="display: none;">Usuario</a>
+                <a href="register.html" id="registerLink">Registrarse</a>
+                <a href="login.html " id="loginLink">Login</a>
+
+
+            </div>
+        </nav>
+
+        <div class="menu-btn">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+
+    </header>
+
+    <hr />
+    <main class="ranking" style="text-align: center; padding:20px;">
+        <div style="text-align: center; margin-inline: 100px;">
+            <span id="userData" style="display: none; color:#3a820a77; font-size: 22px;">Bienvenido, <span
+                    id="userName"></span></span>
+            <button id="cerrarSesionBtn" style="display: none;">Cerrar Sesión</button>
+        </div>
+        <section id="contenedorTablaTiktak">
+            <h3>Puntuacions obtenidas en Tiktak</h3>
+            <div class="table-container" id="tablaPartidasTiktak">
+
+            </div>
+            <button id="eliminarTablaTiktak">Eliminar Tabla</button>
+        </section>
+        <section id="contenedorTablaSimon">
+            <h3>Puntuacions obtenidas en Simon</h3>
+            <div class="table-container" id="tablaPartidasSimon">
+                <!-- La tabla de partidas se cargará aquí -->
+            </div>
+            <button id="eliminarTablaSimon">Eliminar Tabla</button>
+        </section>
+
+    </main>
+    <footer>
+        <hr />
+        <section class="footer-container">
+            <div class="footer-section">
+                <h3>Somos los mejores</h3>
+                <a href="#">
+                    <img src="../assets/images/logo.png" alt="logo bicisval">
+                </a>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces útiles</h3>
+                <div class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="alquiler.html">Alquiler</a>
+                    <a href="taller.html">Taller</a>
+                    <a href="venta.html">Venta</a>
+                    <a href="pages/tictac.html">TikTak</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: info@bicisval.com</p>
+                <p>Teléfono: +34 291 02 23 32</p>
+                <p>Dirección: Daniel Gil, n: 34º</p>
+            </div>
+        </section>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 BicisVal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
+
+            if (cerrarSesionBtn) {
+                cerrarSesionBtn.addEventListener('click', function () {
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('userId');
+                    window.location.href = '../index.html';
+                });
+            }
+
+            let userId = localStorage.getItem('userId');
+            if (userId) {
+                obtenerDatosUsuario(userId);
+            }
+
+        });
+    </script>
+</body>
+
+</html>

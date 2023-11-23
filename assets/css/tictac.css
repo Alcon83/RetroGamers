@@ -1,0 +1,194 @@
+@import url("http://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+
+
+
+.tictac {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+
+    border-radius: 15px;
+    color: #fff;
+}
+
+.tablero{
+    display: flex;
+    padding-block: 25px;
+    
+}
+
+
+ .board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 50px;
+}
+
+.turn-container{
+    width: 170px;
+    height: 80px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+   
+}
+.turn-container h3{
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    color: #fff;
+}
+#remainingGames{
+    text-align: center;
+
+   
+    color: #fff; 
+}
+
+.turn-container .turn-box,
+.result{
+    text-align: center;
+
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: 15px;
+    
+}
+
+#multiplayerForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & div{
+       
+        padding-top: 10px;
+    }
+    
+}
+
+.turn-container .turn-box:nth-child(even){
+    border-right: none;
+}
+
+.bg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 85px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgba(169, 13, 196, 0.468);
+    z-index: -1;
+}
+
+.board .dropBox {
+    position: relative;
+    width: 140px;
+    height: 140px;
+     border-right: 4px solid #fff;
+    border-bottom: 4px solid #fff; 
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.board .dropBox:nth-child(3),
+.board .dropBox:nth-child(6),
+.board .dropBox:nth-child(9)
+{
+    border-right: none;
+   
+}
+.board .dropBox:nth-child(7),
+.board .dropBox:nth-child(8),
+.board .dropBox:nth-child(9)
+{
+    border-bottom: none;
+   
+}
+
+.board .dropBox div {
+   pointer-events: none;
+   scale: 1.5;
+}
+
+
+.drag
+{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+height: 420px;
+width: 100px;
+gap:10px;
+margin: 0 40px;
+cursor:grab;
+transition: 0.1 ease;
+}
+
+.drag .dragBox
+{
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+}
+
+ .cross
+{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.cross::before
+{
+content: '';
+position: absolute;
+width: 5px;
+height: 100%;
+background: #fff;
+transform: rotate(45deg);
+}
+
+.cross::after
+{
+content: '';
+position: absolute;
+width: 100%;
+height: 5px;
+background: #fff;
+transform: rotate(45deg);
+}
+
+ .circle 
+{
+position: relative;
+width: 50px;
+height: 50px;
+border: 5px solid #fff;
+border-radius: 50%;
+
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    padding: 20px;
+}
+

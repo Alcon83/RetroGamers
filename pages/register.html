@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+    <script src="../assets/js/script.js" type="text/javascript" defer></script>
+
+</head>
+
+<body>
+    <header>
+
+        <a href="#">
+            <img src="../assets/images/logo.png" alt="logo bicisval">
+        </a>
+
+        <nav class="navigation">
+            <div class="navigation-items">
+                <a href="../index.html">Inicio</a>
+                <a href="tictac.html">TikTak</a>
+                <a href="simon.html">Simon</a>
+                <a href="user.html" id="userLink" style="display: none;">Usuario</a>
+                <a href="register.html" id="registerLink">Registrarse</a>
+                <a href="login.html " id="loginLink">Login</a>
+
+
+            </div>
+        </nav>
+
+        <div class="menu-btn">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+
+    </header>
+
+    <hr />
+    <main>
+        <div class="card" style=" margin: 100px;">
+            <h1 style="text-align: center; padding-bottom: 20px; font-size: 30px;">Registro</h1>
+            <form id="registerForm" action="/registrar" method="post">
+                <div class="form-group">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="submit-button">Registrar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <hr />
+        <section class="footer-container">
+            <div class="footer-section">
+                <h3>Somos los mejores</h3>
+                <a href="#">
+                    <img src="../assets/images/logo.png" alt="logo bicisval">
+                </a>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces útiles</h3>
+                <div class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="alquiler.html">Alquiler</a>
+                    <a href="taller.html">Taller</a>
+                    <a href="venta.html">Venta</a>
+                    <a href="pages/tictac.html">TikTak</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: info@bicisval.com</p>
+                <p>Teléfono: +34 291 02 23 32</p>
+                <p>Dirección: Daniel Gil, n: 34º</p>
+            </div>
+        </section>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 BicisVal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const name = document.getElementById('name').value;
+            const password = document.getElementById('password').value;
+
+            // Aquí puedes validar y manipular los datos
+            console.log('Usuario:', username, 'Nombre:', name, 'Contraseña:', password);
+            crearUsuario(username, name, password)
+            // Mostrar un mensaje o realizar otras acciones
+            alert('Usuario registrado con éxito: ' + username);
+        });
+
+        function crearUsuario(nick, name, password) {
+            let newUser = {
+                nick: nick,
+                name: name,
+                password: password
+            };
+
+
+            fetch("https://retrogame-rafa.glitch.me/users/", {
+                method: "POST",
+                body: JSON.stringify(newUser),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error("Failed to create player");
+                    return response.json();
+                })
+                .then(userData => {
+                    console.log('Usuario creado:', userData);
+                })
+                .catch(error => {
+                    console.error("Error creating player:", error);
+                });
+
+
+        }
+
+    </script>
+</body>
+
+</html>

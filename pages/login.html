@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.2/css/boxicons.min.css">
+    <script src="../assets/js/script.js" type="text/javascript" defer></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Boxicons CSS -->
+</head>
+
+<body>
+    <header>
+
+        <a href="#">
+            <img src="../assets/images/logo.png" alt="logo bicisval">
+        </a>
+
+        <nav class="navigation">
+            <div class="navigation-items">
+                <a href="../index.html">Inicio</a>
+                <a href="tictac.html">TikTak</a>
+                <a href="simon.html">Simon</a>
+                <a href="user.html" id="userLink" style="display: none;">Usuario</a>
+                <a href="register.html" id="registerLink">Registrarse</a>
+                <a href="login.html " id="loginLink">Login</a>
+
+
+            </div>
+        </nav>
+
+        <div class="menu-btn">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+
+    </header>
+
+    <hr />
+    <main>
+
+        <div class="card" style=" margin: 100px;">
+            <h1 style="text-align: center; padding-bottom: 20px; font-size: 30px;">Iniciar Session</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="submit-button">Iniciar Sesión</button>
+            </form>
+
+    </main>
+    <footer>
+        <hr />
+        <section class="footer-container">
+            <div class="footer-section">
+                <h3>Somos los mejores</h3>
+                <a href="#">
+                    <img src="../assets/images/logo.png" alt="logo bicisval">
+                </a>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces útiles</h3>
+                <div class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="alquiler.html">Alquiler</a>
+                    <a href="taller.html">Taller</a>
+                    <a href="venta.html">Venta</a>
+                    <a href="pages/tictac.html">TikTak</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: info@bicisval.com</p>
+                <p>Teléfono: +34 291 02 23 32</p>
+                <p>Dirección: Daniel Gil, n: 34º</p>
+            </div>
+        </section>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 BicisVal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function obtenerDatosUsuario(username) {
+            return fetch(`https://retrogame-rafa.glitch.me/users/?nick=${username}`)
+                .then(response => {
+                    if (!response.ok) throw new Error("Error al obtener datos del usuario");
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error("Error fetching user data:", error);
+                });
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            obtenerDatosUsuario(username).then(userArray => {
+                if (userArray.length > 0 && userArray[0].password === password) {
+                    // Usuario y contraseña correctos
+                    // Almacenar el nombre de usuario y el ID en localStorage
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('userId', userArray[0].id);
+
+                    alert('Has iniciado sesión correctamente');
+                    // Redirigir a la página de inicio
+                    window.location.href = '../index.html';
+                } else {
+                    // Datos incorrectos
+                    alert('Usuario o contraseña incorrecta');
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
