@@ -2,96 +2,92 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Rafael Gandia">
-    <meta name="copyright" content="BicisVal">
-    <meta name="keywords" content="retrogamers, tic tac toe, simon dice">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script src="assets/js/script.js" type="text/javascript" defer></script>
-    <title>RetroGamers</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Rafael Gandia">
+        <meta name="copyright" content="BicisVal">
+        <meta name="keywords" content="retrogamers, tic tac toe, simon dice">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <script src="assets/js/script.js" type="text/javascript" defer></script>
+        <title>RetroGamers</title>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <header>
+        <header>
 
-        <a href="#">
-            <img src="assets/images/logo.png" alt="logo bicisval">
-        </a>
+            <a href="index.html">
+                <img src="assets/images/logo.png" alt="logo bicisval">
+            </a>
 
-        <nav class="navigation">
-            <div class="navigation-items">
-                <a href="index.html">Inicio</a>
-                <a href="pages/tictac.html">TikTak</a>
-                <a href="pages/simon.html">Simon</a>
-                <a href="pages/ranking.html">Ranking</a>
-                <a href="pages/register.html" id="registerLink">Registrarse</a>
-                <a href="pages/login.html " id="loginLink">Login</a>
-                <a href="pages/user.html" id="userLink" style="display: none;">Usuario</a>
-
-            </div>
-        </nav>
-
-        <div class="menu-btn">
-            <i class="bx bx-menu"></i>
-            <i class="bx bx-x"></i>
-        </div>
-
-    </header>
-
-    <hr />
-    <main>
-        <section>
-            <br />
-            <div class="banner">
-                <div class="slide" style="background-image: url('assets/images/banner1.png');">
+            <nav class="navigation">
+                <div class="navigation-items">
+                    <a href="index.html">Inicio</a>
+                    <a href="pages/tictac.html">TikTak</a>
+                    <a href="pages/simon.html">Simon</a>
+                    <a href="pages/ranking.html">Ranking</a>
+                    <a href="pages/register.html" id="registerLink">Registrarse</a>
+                    <a href="pages/login.html " id="loginLink">Login</a>
+                    <a href="pages/user.html" id="userLink" style="display: none;">Usuario</a>
 
                 </div>
-                <div class="slide" style="background-image: url('assets/images/banner2.png');">
+            </nav>
+
+            <div class="menu-btn">
+                <i class="bx bx-menu"></i>
+                <i class="bx bx-x"></i>
+            </div>
+
+        </header>
+
+        <hr/>
+        <main>
+            <section>
+                <br/>
+                <div class="banner">
+                    <div class="slide" style="background-image: url('assets/images/banner1.png');"></div>
+                    <div class="slide" style="background-image: url('assets/images/banner2.png');"></div>
 
                 </div>
+                <section class="welcome">
+                    <h1 style="padding-block: 15px;">Nuestros Servicios de Juegos:</h1>
+                </section>
 
-            </div>
-            <section class="welcome">
-                <h1 style="padding-block: 15px;">Nuestros Servicios de Juegos:</h1>
+                <section class="services">
+                    <a href="pages/simon.html" class="link-card">
+                        <article class="service-card">
+                            <img src="assets/images/Simon.png" style="width: 150px;">
+                            <h2>Simon Dice</h2>
+                            <p>Desafía tu memoria y habilidades con nuestro emocionante juego Simon Dice.</p>
+                        </article>
+                    </a>
+
+                    <a href="pages/tictac.html" class="link-card">
+                        <article class="service-card">
+                            <img src="assets/images/tic-tac-toe.png" style="width: 150px;">
+                            <h2>Tic Tac Toe</h2>
+                            <p>Disfruta del clásico juego Tic Tac Toe y prueba tus habilidades estratégicas.</p>
+                        </article>
+                    </a>
+
+                    <a href="pages/ranking.html" class="link-card">
+                        <article class="service-card">
+                            <img src="assets/images/ranking.png" style="width: 150px;">
+                            <h2>Ranking</h2>
+                            <p>Comprueba tu posición en el ranking y compite con otros jugadores.</p>
+                        </article>
+                    </a>
+                </section>
             </section>
-
-            <section class="services">
-                <a href="pages/simon.html" class="link-card">
-                    <article class="service-card">
-                        <img src="assets/images/Simon.png" style="width: 150px;">
-                        <h2>Simon Dice</h2>
-                        <p>Desafía tu memoria y habilidades con nuestro emocionante juego Simon Dice.</p>
-                    </article>
-                </a>
-
-                <a href="pages/tictac.html" class="link-card">
-                    <article class="service-card">
-                        <img src="assets/images/tic-tac-toe.png" style="width: 150px;">
-                        <h2>Tic Tac Toe</h2>
-                        <p>Disfruta del clásico juego Tic Tac Toe y prueba tus habilidades estratégicas.</p>
-                    </article>
-                </a>
-
-                <a href="pages/ranking.html" class="link-card">
-                    <article class="service-card">
-                        <img src="assets/images/ranking.png" style="width: 150px;">
-                        <h2>Ranking</h2>
-                        <p>Comprueba tu posición en el ranking y compite con otros jugadores.</p>
-                    </article>
-                </a>
-            </section>
-        </section>
 
         </section>
     </main>
     <footer>
-        <hr />
+        <hr/>
         <section class="footer-container">
             <div class="footer-section">
                 <h3>Somos los mejores</h3>
@@ -120,7 +116,6 @@
             <p>&copy; 2023 RetroGamers. Todos los derechos reservados.</p>
         </div>
     </footer>
-
 
 </body>
 
