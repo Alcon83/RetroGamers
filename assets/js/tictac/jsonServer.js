@@ -1,6 +1,6 @@
 function crearPartida(nombreJugador, ganadasRonda, ganadasPartida, PerdidaRonda, PerdidaPartidas, empate, userId) {
     let newPlayer = {
-        player: nombreJugador,
+        username: nombreJugador,
         ganadasRonda: ganadasRonda,
         ganadasPartida: ganadasPartida,
         PerdidaRonda: PerdidaRonda,
@@ -66,7 +66,7 @@ function crearTablaPartidasTiktak(partidas, userId) {
     partidas.forEach(partida => {
         let columnaAcciones = userId ? `<td><button onclick="eliminarPartidaTiktak('${partida._id}')">Eliminar</button></td>` : '';
         tabla += `<tr>
-                    <td>${partida.username}</td>
+                    <td>${partida.player}</td>
                     <td>${partida.ganadasRonda}</td>
                     <td>${partida.PerdidaRonda}</td>
                     <td>${partida.PerdidaPartidas}</td>

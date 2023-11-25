@@ -66,13 +66,16 @@ function crearTablaPartidasSimon(partidas, userId) {
     partidas.forEach(partida => {
         let columnaAcciones = userId ? `<td><button onclick="eliminarPartidaSimon('${partida._id}')">Eliminar</button></td>` : '';
         tabla += `<tr>
-                    <td>${partida.username}</td>
+                    <td>${partida.siglasName}</td>
                     <td>${partida.score}</td>
                     <td>${partida.time}</td>
                     ${columnaAcciones}
                   </tr>`;
     });
 
+
+    tabla += '</table>';
+    document.getElementById('tablaPartidasSimon').innerHTML = tabla;
 }
 
 function eliminarPartidasUsuarioSimon(userId) {
