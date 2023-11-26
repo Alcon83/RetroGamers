@@ -60,16 +60,19 @@ function mostrarPartidasPorUsuarioSimon(userId) {
 }
 
 function crearTablaPartidasSimon(partidas, userId) {
-    let tabla = '<table border="1"><tr><th>Siglas</th><th>Puntuación</th><th>Tiempo</th><th>Acciones</th></tr>';
+    let mostrarColumnaAcciones = userId ? '<th>Acciones</th>' : '';
+    let tabla = `<table border="1"><tr><th>Jugador</th><th>Puntuación</th><th>Tiempo</th>${mostrarColumnaAcciones}</tr>`;
 
     partidas.forEach(partida => {
+        let columnaAcciones = userId ? `<td><button onclick="eliminarPartidaSimon('${partida.id}')">Eliminar</button></td>` : '';
         tabla += `<tr>
                     <td>${partida.siglasName}</td>
                     <td>${partida.score}</td>
                     <td>${partida.time}</td>
-                    <td>${userId ? `<button onclick="eliminarPartidaSimon('${partida.id}')">Eliminar</button>` : ''}</td>
+                    ${columnaAcciones}
                   </tr>`;
     });
+
 
     tabla += '</table>';
     document.getElementById('tablaPartidasSimon').innerHTML = tabla;

@@ -6,15 +6,16 @@
     <title>Registro</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="../assets/js/script.js" type="text/javascript" defer></script>
+    <script src="../assets/js/API.js" type="text/javascript" defer></script>
 
 </head>
 
 <body>
     <header>
 
-        <a href="#">
+        <a href="../index.html">
             <img src="../assets/images/logo.png" alt="logo bicisval">
         </a>
 
@@ -105,35 +106,6 @@
             // Mostrar un mensaje o realizar otras acciones
             alert('Usuario registrado con éxito: ' + username);
         });
-
-        function crearUsuario(nick, name, password) {
-            let newUser = {
-                nick: nick,
-                name: name,
-                password: password
-            };
-
-
-            fetch("https://retrogame-rafa.glitch.me/users/", {
-                method: "POST",
-                body: JSON.stringify(newUser),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error("Failed to create player");
-                    return response.json();
-                })
-                .then(userData => {
-                    console.log('Usuario creado:', userData);
-                })
-                .catch(error => {
-                    console.error("Error creating player:", error);
-                });
-
-
-        }
 
     </script>
 </body>
