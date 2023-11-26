@@ -381,23 +381,25 @@ function checkGlobalWinner() {
             winner = nombreJugadorX;
             ganadasTotals1++;
             perdidaPartidas2++;
+
         } else if ((ganadasJugador1 || 0) < (ganadasJugador2 || 0)) {
             winner = nombreJugadorO;
             ganadasTotals2++;
             perdidaPartidas1++;
+
         } else {
             // En cas d'empat, s'incrementa el contador d'empats globals.
             winner = "Es un empat!";
             empatsTotals++;
+
         }
 
         // Mostra una alerta amb el guanyador de la ronda.
         alert("El guanyador de la ronda és: " + winner);
+        guardarPartida();
         // Mostra els resultats actuals.
         mostrarResultats(winner);
-
         // Finalitza la partida actual i prepara el joc per a la següent ronda.
-        guardarPartida();
         finalizarPartida();
     }
 }
@@ -489,43 +491,4 @@ function updateWinsChart() {
         winsChartInstance.update();
     }
 }
-
-function crearPartida(nombreJugador, ganadasRonda, ganadasPartida, PerdidaRonda, PerdidaPartidas, empate, userId) {
-    let newPlayer = {
-        player: nombreJugador,
-        ganadasRonda: ganadasRonda,
-        ganadasPartida: ganadasPartida,
-        PerdidaRonda: PerdidaRonda,
-        PerdidaPartidas: PerdidaPartidas,
-        empate: empate,
-        userId: userId
-    };
-
-
-    fetch("https://tiktaktoe-project.glitch.me/players", {
-        method: "POST",
-        body: JSON.stringify(newPlayer),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-        .then(response => {
-            if (!response.ok) throw new Error("Failed to create player");
-            return response.json();
-        })
-        .then(playerData => {
-            console.log('Player created:', playerData);
-        })
-        .catch(error => {
-            console.error("Error creating player:", error);
-        });
-
-
-}
-function eliminarTablaTiktak() {
-    document.getElementById('tablaPartidasTiktak').innerHTML = '';
-}
-
-
-
 
