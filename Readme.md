@@ -30,6 +30,8 @@ El clásico juego de Tic Tac Toe (tres en línea) donde dos jugadores colocan su
 ## Instalación
 
 Para ejecutar este proyecto localmente, simplemente abre el archivo `index.html` en tu navegador.
+O acceder directamente a la web: [Enlace](https://alcon83.github.io/RetroGamers/index.html/)
+
 
 ## Contribuciones
 

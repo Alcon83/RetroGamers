@@ -103,7 +103,7 @@ function eliminarPartidasUsuarioSimon(userId) {
             });
 
             // Limpia la tabla del DOM
-            document.getElementById('tablaPartidasTiktak').innerHTML = '';
+            document.getElementById('tablaPartidasSimon').innerHTML = '';
         })
         .catch(error => {
             console.error("Error al obtener partidas:", error);
